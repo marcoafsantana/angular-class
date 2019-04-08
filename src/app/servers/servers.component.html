@@ -1,8 +1,23 @@
+<label>{{serverName}}</label>
+<!-- Sempre que algo é digitado, gera o evendo (input) Oneway Binding. Aqui notamos que se o component trocar o valor de servername não altera o input daqui pois não é two way binding.
+-->
+<!-- <input type="text"
+    class="form-control"
+    (input)="onUpdateServerName($event)"> -->
+<!-- Aqui se o component altera o valor, altera o inner do input com [(ngModel)] pois é two way binding -->
+<input type="text"
+    class="form-control"
+    [(ngModel)]="serverName">
 <button 
     class="btn btn-primary"
-    [disabled]="!allowNewServer">Add a server</button>
+    [disabled]="!allowNewServer"
+    (click)="onCreateServer()">Add a server</button>
     <!--Property binding:
         Alterando uma propiedade com um parametro do component.ts
     -->
+<p>{{serverCreationStatus}}</p>
+<!-- <p>{{allowNewServer}}</p> -->
+<!--os dois <p> são iguais-->
+<!-- <p [innerText]="allowNewServer"></p> -->
 <app-server></app-server>
 <app-server></app-server>
