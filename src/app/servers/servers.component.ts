@@ -24,6 +24,16 @@ export class ServersComponent implements OnInit {
   allowNewServer = false;
   serverCreationStatus = "No server was created";
   serverName = "";
+  serverCreated = false;
+  servers = ['Test Server 1', 'Test Server 2'];
+  arrayNgFor = [
+    {local: 'Recife', latencia:'128ms'},
+    {local: 'Garanhuns', latencia:'28ms'},
+    {local: 'Arcoverde', latencia:'88ms'},
+    {local: 'Rio de Janeiro', latencia:'116ms'},
+    {local: 'São Paulo', latencia:'64ms'},
+    {local: 'Natal', latencia:'50ms'},
+  ]
 
   constructor() {
     setTimeout(()=>{
@@ -37,6 +47,8 @@ export class ServersComponent implements OnInit {
 
   onCreateServer() {
     this.serverCreationStatus = "Server was created. And his name is " + this.serverName;
+    this.servers.push(this.serverName);
+    this.serverCreated = true;
   }
 
   onUpdateServerName(event: Event) {

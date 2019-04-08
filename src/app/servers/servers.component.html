@@ -15,9 +15,17 @@
     <!--Property binding:
         Alterando uma propiedade com um parametro do component.ts
     -->
-<p>{{serverCreationStatus}}</p>
+<!-- <p>{{serverCreationStatus}}</p> -->
+<p *ngIf="serverCreated; else noServer">Server was created with {{serverName}} name.</p>
+<ng-template #noServer>
+    <p>No server was created</p>
+</ng-template>
 <!-- <p>{{allowNewServer}}</p> -->
 <!--os dois <p> são iguais-->
 <!-- <p [innerText]="allowNewServer"></p> -->
-<app-server></app-server>
-<app-server></app-server>
+
+<app-server *ngFor="let server of servers;"></app-server>
+
+<div *ngFor="let server of arrayNgFor; let i = index">
+    Servidor {{i}} - Local: {{server.local}} / Latencia: {{server.latencia}}
+</div>

@@ -1,1 +1,7 @@
-<h3>Server {{ serverID }} is {{ getStatus() }}</h3>
+<!-- Podemos utilizar ngClass com um JSON onde a key é a classe e o valor é um boleano -->
+<!-- <h3 [ngClass]="{online: serverStatus === 'online',
+                offline: serverStatus === 'offline'}">
+                Server {{ serverID }} is {{ getStatus() }}</h3> -->
+<!-- ngStyle é um JSON onde o valor é o atributo de style e o value é o valor desse atributo -->
+<h3 [ngStyle]="{backgroundColor: getColor()}">
+                Server {{ serverID }} is {{ getStatus() }}</h3>
