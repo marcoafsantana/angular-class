@@ -8,4 +8,7 @@ export class ServerComponent {
     serverID: number = 3;
     serverStatus: string = 'online';
 
+    getStatus(){
+        return this.serverStatus;
+    }
 }
